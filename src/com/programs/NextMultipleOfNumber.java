@@ -6,8 +6,8 @@ public class NextMultipleOfNumber {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int number = sc.nextInt();
-		sc.close();
 		int nextMultipleOf = sc.nextInt();
+		sc.close();
 		int nextMultiple = number + (nextMultipleOf - (number % nextMultipleOf));
 		System.out.println(nextMultiple);
 	}

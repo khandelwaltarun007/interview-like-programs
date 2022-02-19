@@ -5,7 +5,7 @@ package com.programs;
  */
 public class CyclicPermutationOfNumber {
 	public static void main(String[] args) {
-		int N = 123;
+		int N = 123456;
 		cyclic(N);
 	}
 
@@ -14,9 +14,9 @@ public class CyclicPermutationOfNumber {
 		int lengthOfNumber = count(N);
 		while (true) {
 			System.out.println(N);
-			int rem = N % 10;
-			int dev = N / 10;
-			N = (int) Math.pow(10, lengthOfNumber - 1) * rem + dev;
+			int rem = N % 10;//6
+			int dev = N / 10;//12345
+			N = (int) Math.pow(10, lengthOfNumber - 1) * rem + dev;//600000+12345=612345
 			if (num == N) {
 				break;
 			}
