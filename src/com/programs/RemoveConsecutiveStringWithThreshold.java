@@ -42,7 +42,7 @@ public class RemoveConsecutiveStringWithThreshold {
 					inputArray.remove(i);
 					count--;
 				}
-				i -= 3;
+				i -= 0;
 			}
 			i++;
 		}

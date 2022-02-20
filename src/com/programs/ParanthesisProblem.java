@@ -10,34 +10,30 @@ public class ParanthesisProblem {
 		System.out.print("Expression : ");
 		String str = sc.nextLine();
 		sc.close();
-		Stack<Character> stack = new Stack<>();
-		char[] ch = str.toCharArray();
-		if (ch.length < 2) {
-			System.out.println("Invalid String.");
-			return;
+		if(isValid(str)){
+			System.out.println("Valid Expression.");
+		}else {
+			System.out.println("Invalid Expression.");
 		}
-		for (int i = 0; i < ch.length; i++) {
-			if (ch[i] == '{' || ch[i] == '(' || ch[i] == '[') {
-				stack.push(ch[i]);
-			} else if (ch[i] == '}' || ch[i] == ')' || ch[i] == ']') {
-				if (validate(stack.lastElement(), ch[i]))
-					stack.pop();
-			}
-		}
-		if (stack.isEmpty())
-			System.out.println("Expression is balanced.");
+		
 	}
 
-	private static boolean validate(char c, char d) {
-		if (c == '[' && d == ']') {
-			return true;
-		}
-		if (c == '{' && d == '}') {
-			return true;
-		}
-		if (c == '(' && d == ')') {
-			return true;
-		}
-		return false;
-	}
+	public static boolean isValid(String s) {
+        Stack <Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++){
+            char ch = s.charAt(i);
+            if (ch == '(' || ch == '{' || ch == '[')
+                stack.push(ch);
+            else if (stack.isEmpty())
+                return false;
+            else {
+                char ch1 = stack.peek();
+                if (ch1 == '(' && ch == ')' || ch1 == '{' && ch == '}' || ch1 == '[' && ch == ']')
+                    stack.pop();
+                else
+                    return false;
+            }
+        }
+        return stack.isEmpty();
+    }
 }
